@@ -20,6 +20,12 @@ export const LoginRefForm = () => {
 
   const handleSubmit: FormEventHandler = (event) => {
     event.preventDefault();
+
+    if (emailRef.current) {
+      // emailRef.current.style = '1px #f00 solid;';
+      emailRef.current.focus();
+    }
+
     console.log({
       email: emailRef.current?.value || '',
       password: passwordRef.current?.value || '',
