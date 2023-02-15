@@ -8,7 +8,7 @@ interface FormData {
 }
 
 const defaultData: FormData = {
-  email: '',
+  email: 'costam@wp.pl',
   password: '',
   language: '',
 }
@@ -44,15 +44,15 @@ export const LoginForm = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">E-mail</label>
-          <input id="email" type="email" onChange={handleChange} />
+          <input id="email" type="email" onChange={handleChange} value={email} />
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input id="password" type="password" onChange={handleChange} />
+          <input id="password" type="password" onChange={handleChange} value={password} />
         </div>
         <div>
           <label htmlFor="language">Language</label>
-          <input id="language" type="text" onChange={handleChange} />
+          <input id="language" type="text" onChange={handleChange} value={language} />
         </div>
         <div>
           <button type="submit">Send</button>
