@@ -1,4 +1,4 @@
-import { FormEventHandler, useRef } from 'react';
+import { FormEventHandler, useRef, useEffect } from 'react';
 
 interface FormData {
   email: string;
@@ -17,6 +17,27 @@ export const LoginRefForm = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const languageRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    // body
+    if (emailRef.current) {
+      emailRef.current.focus();
+    }
+
+    return () => {
+      // unmounting
+    }
+
+  }, []); // mounting
+
+  useEffect(() => {
+    // body
+  }); // mounting or updating
+
+  useEffect(() => {
+    // body
+    console.log('Case 3');
+  }, [emailRef]); // updating when emailRef will change
 
   const handleSubmit: FormEventHandler = (event) => {
     event.preventDefault();

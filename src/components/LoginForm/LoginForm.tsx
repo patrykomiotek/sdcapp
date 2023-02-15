@@ -1,4 +1,4 @@
-import { FormEventHandler, useState } from 'react';
+import { FormEventHandler, useEffect, useState } from 'react';
 import type { ChangeEventHandler } from 'react';
 
 interface FormData {
@@ -16,6 +16,10 @@ const defaultData: FormData = {
 export const LoginForm = () => {
   const [data, setData] = useState<FormData>(defaultData);
   const { email, language, password } = data;
+
+  useEffect(() => {
+    // body
+  }, [email]);
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     console.log(event.target.id, event.target.value);
