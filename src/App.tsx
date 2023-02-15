@@ -2,7 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 // import { Button } from '@components/Button';
-import { Button } from './components/Button';
+import { Button } from '@components/Button';
+import { Text } from '@components/Text';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,6 +31,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <Button />
+      <Text>Dzisiaj jest środa</Text>
     </div>
   )
 }
