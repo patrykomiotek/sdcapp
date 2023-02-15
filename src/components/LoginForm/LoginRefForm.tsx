@@ -63,18 +63,9 @@ export const LoginRefForm = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">E-mail</label>
-          <Input ref={emailRef} id="email" type="email" value={email} />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <Input ref={passwordRef} id="password" type="password" value={password} />
-        </div>
-        <div>
-          <label htmlFor="language">Language</label>
-          <Input ref={languageRef} id="language" type="text" value={language} />
-        </div>
+        <Input ref={emailRef} label="Email" id="email" type="email" defaultValue={email} />
+        <Input ref={passwordRef} label="Password" id="password" type="password" defaultValue={password} />
+        <Input ref={languageRef} label="Language" id="language" type="text" defaultValue={language} />
         <div>
           <button type="submit">Send</button>
         </div>

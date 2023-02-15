@@ -1,22 +1,26 @@
-import { forwardRef, Ref } from 'react';
+import { ComponentPropsWithRef, forwardRef, Ref } from 'react';
 
-type Props = {
-  id: string;
-  type: 'email' | 'password' | 'text';
-  value: string;
+interface Props extends ComponentPropsWithRef<'input'> {
+  label: string;
 }
 
+// type Props = {
+//   id: string;
+//   type: 'email' | 'password' | 'text';
+//   value: string;
+// }
+
 export const Input = forwardRef((
-  props: Props,
+  { label, id, ...rest }: Props,
   ref: Ref<HTMLInputElement>
 ) => {
   return (
     <div>
+      <label htmlFor={id}>{label}</label>
       <input
         ref={ref}
-        id={props.id}
-        type={props.type}
-        defaultValue={props.value}
+        id={id}
+        {...rest}
       />
     </div>
   )
