@@ -21,9 +21,14 @@ export const LoginRefForm = () => {
   const handleSubmit: FormEventHandler = (event) => {
     event.preventDefault();
 
+    // jQuery: $('#email)
+    // VanillaJs: document.getElementById('email')
     if (emailRef.current) {
-      // emailRef.current.style = '1px #f00 solid;';
       emailRef.current.focus();
+    }
+
+    if (passwordRef.current) {
+      passwordRef.current.style.border = '1px solid #c0392b';
     }
 
     console.log({
