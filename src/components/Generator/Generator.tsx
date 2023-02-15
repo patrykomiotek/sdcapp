@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 
-import { Text } from '@components/Text';
+import { Text } from '@atoms/Text';
 
 export const Generator = () => {
   const [id, setId] = useState(uuidv4());

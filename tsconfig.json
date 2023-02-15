@@ -2,7 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@atoms/*": ["src/ui/atoms/*"],
+      "@molecules/*": ["src/ui/molecules/*"],
+      "@organisms/*": ["src/ui/organisms/*"],
     },
     "target": "ESNext",
     "useDefineForClassFields": true,
