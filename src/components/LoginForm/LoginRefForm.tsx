@@ -1,3 +1,4 @@
+import { Button } from '@atoms/Button';
 import { Input } from '@atoms/Input';
 import { FormEventHandler, useRef, useEffect } from 'react';
 
@@ -66,9 +67,7 @@ export const LoginRefForm = () => {
         <Input ref={emailRef} label="Email" id="email" type="email" defaultValue={email} />
         <Input ref={passwordRef} label="Password" id="password" type="password" defaultValue={password} />
         <Input ref={languageRef} label="Language" id="language" type="text" defaultValue={language} />
-        <div>
-          <button type="submit">Send</button>
-        </div>
+        <Button type="submit">Send</Button>
       </form>
     </div>
   );
