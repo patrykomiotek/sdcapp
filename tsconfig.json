@@ -6,6 +6,7 @@
       "@atoms/*": ["src/ui/atoms/*"],
       "@molecules/*": ["src/ui/molecules/*"],
       "@organisms/*": ["src/ui/organisms/*"],
+      "@pages/*": ["src/pages/*"],
     },
     "target": "ESNext",
     "useDefineForClassFields": true,
