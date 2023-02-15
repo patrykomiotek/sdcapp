@@ -1,3 +1,4 @@
+import { Input } from '@atoms/Input';
 import { FormEventHandler, useRef, useEffect } from 'react';
 
 interface FormData {
@@ -64,15 +65,15 @@ export const LoginRefForm = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">E-mail</label>
-          <input ref={emailRef} id="email" type="email" defaultValue={email} />
+          <Input ref={emailRef} id="email" type="email" value={email} />
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input ref={passwordRef} id="password" type="password" defaultValue={password} />
+          <Input ref={passwordRef} id="password" type="password" value={password} />
         </div>
         <div>
           <label htmlFor="language">Language</label>
-          <input ref={languageRef} id="language" type="text" defaultValue={language} />
+          <Input ref={languageRef} id="language" type="text" value={language} />
         </div>
         <div>
           <button type="submit">Send</button>
