@@ -19,6 +19,7 @@ export const LoginForm = () => {
 
   useEffect(() => {
     // body
+    console.log('email: ', email);
   }, [email]);
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
