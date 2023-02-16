@@ -19,7 +19,10 @@ const useTheme = () => {
   return { theme, toggle };
 }
 
-// 4️⃣ useThemeContext "external hook"
+// 4️⃣ ThemeContext
+const ThemeContext = createContext<ThemeContextType | null>(null);
+
+// 5️⃣ useThemeContext "external hook"
 export const useThemeContext = () => {
   const context = useContext(ThemeContext);
   if (!context) {
@@ -27,9 +30,6 @@ export const useThemeContext = () => {
   }
   return context;
 }
-
-// 5️⃣ ThemeContext
-const ThemeContext = createContext<ThemeContextType | null>(null);
 
 // 6️⃣ ThemeProvider
 interface ThemeProviderProps {
