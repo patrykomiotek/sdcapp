@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   );
 }
 
-export const AuthContext = createContext<UserContext | null>(null);
+const AuthContext = createContext<UserContext | null>(null);
 
 
 export const useAuthContext = () => {
