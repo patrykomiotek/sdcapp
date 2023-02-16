@@ -14,8 +14,17 @@ interface ThemeContextType {
 
 // 3️⃣ useTheme "internal hook"
 const useTheme = () => {
-  const [theme, setTheme] = useState(Theme.LIGHT);
-  const toggle = () => theme === Theme.LIGHT ? setTheme(Theme.DARK) : setTheme(Theme.LIGHT);
+  const [theme, setTheme] = useState(Theme.DARK);
+  const toggle = () => {
+    if (theme === Theme.LIGHT) {
+      document.body.classList.remove('light');
+      setTheme(Theme.DARK)
+    } else {
+      document.body.classList.add('light');
+      setTheme(Theme.LIGHT)
+    }
+    // theme === Theme.LIGHT ? setTheme(Theme.DARK) : setTheme(Theme.LIGHT)
+  }
   return { theme, toggle };
 }
 
