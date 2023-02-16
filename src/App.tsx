@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, createContext } from 'react'
 import './App.css'
 // import { Button } from '@components/Button';
 import {
@@ -7,35 +7,50 @@ import {
   BrowserRouter as Router,
   Link
 } from 'react-router-dom';
+import { AuthInfo } from '@components/Auth/AuthInfo';
 
 import { Viewport } from '@components/Viewport';
 import { Generator } from '@components/Generator';
 import { LoginPage } from '@pages/LoginPage';
+
+interface User {
+  isLoggedIn: boolean;
+  username: string;
+}
+
+const user1: User = {
+  isLoggedIn: false,
+  username: 'User #1'
+}
+
+export const AuthContext = createContext(user1);
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <Router>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-          </ul>
-        </nav>
+      <AuthContext.Provider value={user1}>
+        <Router>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+            </ul>
+          </nav>
 
-        <Viewport />
+          <AuthInfo />
 
-        <Routes>
-          <Route path="/" element={<Generator />} />
-          <Route path="/login" element={<LoginPage />} />
-        </Routes>
-      </Router>
+          <Routes>
+            <Route path="/" element={<Generator />} />
+            <Route path="/login" element={<LoginPage />} />
+          </Routes>
+        </Router>
+      </AuthContext.Provider>
     </div>
   )
 }
