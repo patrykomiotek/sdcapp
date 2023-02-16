@@ -1,6 +1,6 @@
 import { Button } from '@atoms/Button';
 import { Input } from '@atoms/Input';
-import { FormEventHandler, useRef, useEffect } from 'react';
+import { FormEventHandler, useRef, useEffect, useState } from 'react';
 
 interface FormData {
   email: string;
@@ -14,11 +14,20 @@ const defaultData: FormData = {
   language: '',
 }
 
-export const LoginRefForm = () => {
+interface Props {
+  defaultValues?: {
+    email: string
+  }
+}
+
+export const LoginRefForm = ({ defaultValues }: Props) => {
   const { email, language, password } = defaultData;
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const languageRef = useRef<HTMLInputElement>(null);
+  const [formErrors, setFormErrors] = useState({
+    email: '',
+  });
 
   useEffect(() => {
     // body
@@ -61,10 +70,25 @@ export const LoginRefForm = () => {
     });
   }
 
+  const handleEmailBlur: FocusEventHandler<HTMLInputElement> = (event) => {
+    console.log('event: ', event.target.value);
+    if (!event.target.value.includes('@')) {
+      setFormErrors({
+        email: 'E-mail is invalid',
+      });
+    } else {
+      setFormErrors({
+        email: '',
+      });
+    }
+  }
+
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <Input ref={emailRef} label="Email" id="email" type="email" defaultValue={email} />
+        <Input ref={emailRef} onBlur={handleEmailBlur} label="E-mail" id="email" type="email" defaultValue={email} />
+        {formErrors.email && <p>E-mail is invalid</p>}
         <Input ref={passwordRef} label="Password" id="password" type="password" defaultValue={password} />
         <Input ref={languageRef} label="Language" id="language" type="text" defaultValue={language} />
         <Button type="submit">Send</Button>

@@ -22,7 +22,7 @@ export const Generator = () => {
   return (
     <div>
       <Text>{id}</Text>
-      <button onClick={handleClick}>Click me</button>
+      <button onClick={handleClick}>Refresh</button>
     </div>
   );
 }
