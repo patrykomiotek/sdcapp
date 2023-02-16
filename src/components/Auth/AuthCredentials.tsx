@@ -8,6 +8,7 @@ export const AuthCredentials = () => {
   return (
     <div>
       <p>Is user logged? {isLoggedIn ? 'YES' : 'NO'}</p>
+      <button onClick={() => context?.toggle()}>Toggle</button>
     </div>
   );
 }

@@ -42,7 +42,7 @@ interface AuthProviderProps {
   children: React.ReactNode;
 }
 
-const AuthProvider = ({ children }: AuthProviderProps) => {
+export const AuthProvider = ({ children }: AuthProviderProps) => {
   // const { state, logIn, logOut, toggle, setUsername } = useAuth();
   return (
     <AuthContext.Provider value={useAuth()}>

@@ -12,17 +12,12 @@ import { AuthInfo } from '@components/Auth/AuthInfo';
 import { Viewport } from '@components/Viewport';
 import { Generator } from '@components/Generator';
 import { LoginPage } from '@pages/LoginPage';
-import { AuthContext } from '@components/Auth/AuthContext';
+import { AuthProvider } from '@components/Auth/AuthContext';
 
 function App() {
-  const [value, setValue] = useState(false);
-
   return (
     <div className="App">
-      <AuthContext.Provider value={{
-        isLoggedIn: value,
-        username: 'User #1'
-      }}>
+      <AuthProvider>
         <Router>
           <nav>
             <ul>
@@ -36,18 +31,13 @@ function App() {
           </nav>
 
           <AuthInfo />
-          <button onClick={() => setValue(
-            (currentValue) => !currentValue
-          )}>
-            Toggle
-          </button>
 
           <Routes>
             <Route path="/" element={<Generator />} />
             <Route path="/login" element={<LoginPage />} />
           </Routes>
         </Router>
-      </AuthContext.Provider>
+      </AuthProvider>
     </div>
   )
 }
