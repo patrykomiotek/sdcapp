@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react'
+import { useState, createContext, useContext } from 'react'
 
 interface User {
   isLoggedIn: boolean;
@@ -52,3 +52,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 }
 
 export const AuthContext = createContext<UserContext | null>(null);
+
+
+export const useAuthContext = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('Oh no! useAuthContext should be wrapped in AuthProvider');
+  }
+  return context;
+}

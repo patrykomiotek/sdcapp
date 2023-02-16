@@ -1,14 +1,13 @@
-import { useContext } from 'react';
-import { AuthContext } from './AuthContext';
+import { useAuthContext } from './AuthContext';
 
 export const AuthCredentials = () => {
-  const context = useContext(AuthContext);
+  const context = useAuthContext();
 
-  const isLoggedIn = context?.isLoggedIn;
+  const isLoggedIn = context.isLoggedIn;
   return (
     <div>
       <p>Is user logged? {isLoggedIn ? 'YES' : 'NO'}</p>
-      <button onClick={() => context?.toggle()}>Toggle</button>
+      <button onClick={() => context.toggle()}>Toggle</button>
     </div>
   );
 }
