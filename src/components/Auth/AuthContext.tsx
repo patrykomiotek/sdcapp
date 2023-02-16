@@ -5,9 +5,4 @@ interface User {
   username: string;
 }
 
-const user1: User = {
-  isLoggedIn: false,
-  username: 'User #1'
-}
-
-export const AuthContext = createContext(user1);
+export const AuthContext = createContext<User | null>(null);
