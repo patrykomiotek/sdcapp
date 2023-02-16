@@ -5,6 +5,12 @@ interface User {
   username: string;
 }
 
+interface UserContext extends User {
+  logIn(): void;
+  logOut(): void;
+  toggle(): void;
+  setUsername(name: string): void;
+}
 
 const useAuth = () => {
   const [state, setState] = useState<User>({ isLoggedIn: false, username: '' });
@@ -29,7 +35,7 @@ const useAuth = () => {
     username: name,
   });
 
-  return { state, logIn, logOut, toggle, setUsername };
+  return { ...state, logIn, logOut, toggle, setUsername };
 }
 
 interface AuthProviderProps {
@@ -45,4 +51,4 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   );
 }
 
-export const AuthContext = createContext<User | null>(null);
+export const AuthContext = createContext<UserContext | null>(null);
