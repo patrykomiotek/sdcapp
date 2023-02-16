@@ -13,31 +13,34 @@ import { Viewport } from '@components/Viewport';
 import { Generator } from '@components/Generator';
 import { LoginPage } from '@pages/LoginPage';
 import { AuthProvider } from '@components/Auth/AuthContext';
+import { ThemeProvider } from '@components/Theme/ThemeContext';
 
 function App() {
   return (
     <div className="App">
-      <AuthProvider>
-        <Router>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-            </ul>
-          </nav>
+      <ThemeProvider>
+        <AuthProvider>
+          <Router>
+            <nav>
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+              </ul>
+            </nav>
 
-          <AuthInfo />
+            <AuthInfo />
 
-          <Routes>
-            <Route path="/" element={<Generator />} />
-            <Route path="/login" element={<LoginPage />} />
-          </Routes>
-        </Router>
-      </AuthProvider>
+            <Routes>
+              <Route path="/" element={<Generator />} />
+              <Route path="/login" element={<LoginPage />} />
+            </Routes>
+          </Router>
+        </AuthProvider>
+      </ThemeProvider>
     </div>
   )
 }
