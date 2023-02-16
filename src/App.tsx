@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 // import { Button } from '@components/Button';
 import {
@@ -9,6 +8,7 @@ import {
   Link
 } from 'react-router-dom';
 
+import { Viewport } from '@components/Viewport';
 import { Generator } from '@components/Generator';
 import { LoginPage } from '@pages/LoginPage';
 
@@ -28,6 +28,8 @@ function App() {
             </li>
           </ul>
         </nav>
+
+        <Viewport />
 
         <Routes>
           <Route path="/" element={<Generator />} />
