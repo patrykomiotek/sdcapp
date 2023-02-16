@@ -14,6 +14,8 @@ import { Generator } from '@components/Generator';
 import { LoginPage } from '@pages/LoginPage';
 import { AuthProvider } from '@components/Auth/AuthContext';
 import { ThemeProvider } from '@components/Theme/ThemeContext';
+import { BuggyComponent } from '@components/ErrorBoundary/BuggyComponent';
+import { ErrorBoundary } from '@components/ErrorBoundary/ErrorBoundary';
 
 function App() {
   return (
@@ -32,7 +34,12 @@ function App() {
               </ul>
             </nav>
 
+            <button onClick={() => methodDoesNotExist()}>Break the world</button>
+
             <AuthInfo />
+            <ErrorBoundary>
+              <BuggyComponent />
+            </ErrorBoundary>
 
             <Routes>
               <Route path="/" element={<Generator />} />
