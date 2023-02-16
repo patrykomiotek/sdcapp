@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 }
 
 const AuthContext = createContext<UserContext | null>(null);
-
+// AuthContext.displayName = 'Trololo';
 
 export const useAuthContext = () => {
   const context = useContext(AuthContext);
