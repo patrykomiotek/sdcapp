@@ -15,12 +15,12 @@ import { LoginPage } from '@pages/LoginPage';
 import { AuthContext } from '@components/Auth/AuthContext';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [value, setValue] = useState(false);
 
   return (
     <div className="App">
       <AuthContext.Provider value={{
-        isLoggedIn: false,
+        isLoggedIn: value,
         username: 'User #1'
       }}>
         <Router>
@@ -36,6 +36,11 @@ function App() {
           </nav>
 
           <AuthInfo />
+          <button onClick={() => setValue(
+            (currentValue) => !currentValue
+          )}>
+            Toggle
+          </button>
 
           <Routes>
             <Route path="/" element={<Generator />} />
