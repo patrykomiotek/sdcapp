@@ -1,7 +1,7 @@
 import { MouseEventHandler, forwardRef, Ref } from 'react';
 
 type Props = {
-  handleMouseEnter: MouseEventHandler<HTMLButtonElement>
+  handleMouseEnter?: MouseEventHandler<HTMLButtonElement>
 }
 
 export const MagicButton = forwardRef((
