@@ -1,7 +1,7 @@
 // import { initialize, mswDecorator } from "msw-storybook-addon";
 // import { Provider } from "react-redux";
 
-// import { store } from "../src/root-store";
+// import { store } from "../src/store";
 
 // Initialize MSW
 // initialize();
