@@ -14,7 +14,8 @@ export const ProductsList = () => {
       {data && data.records.map((item) => {
         return (
           <div key={item.id}>
-            <p><Link to={`/products/${item.id}`}>{item.fields.name}</Link></p>
+            {/* <p><Link to={`/products/${item.id}`}>{item.fields.name}</Link></p> */}
+            <p>{item.fields.name}</p>
           </div>
         )
         // <Product key={item.id} data={} />

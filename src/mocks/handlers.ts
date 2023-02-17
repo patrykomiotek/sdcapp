@@ -1,5 +1,7 @@
 import { graphql, rest } from 'msw';
 
+import products from './products.json';
+
 // Mock Data
 export const posts = [
   {
@@ -27,6 +29,13 @@ const jsonPlaceHolder = graphql.link('https://jsonplaceholder.ir/graphql')
 export const handlers = [
   rest.get('https://jsonplaceholder.typicode.com/posts', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(posts))
+  }),
+
+  rest.get('https://api.airtable.com/v0/appHEmkJzhzPZOu9s/products', (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json(products),
+    );
   }),
 
   jsonPlaceHolder.query('posts', (req, res, ctx) => {
