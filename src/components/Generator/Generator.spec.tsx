@@ -4,14 +4,17 @@ import { Generator } from "./Generator";
 
 describe('<Generator />', () => {
   it('should generate new value after click', async () => {
-    render(<Generator />);
-    // debug();
+    const { debug } = render(<Generator />);
+    debug();
 
+    const button = screen.getByRole('button', { name: 'Refresh' });
     const uuid = screen.getByText(/[a-z0-9-]{36}/).textContent;
+    console.log('uuid: ', uuid);
 
-    userEvent.click(screen.getByRole('button', { name: 'Refresh' }));
+    await userEvent.click(button);
 
-    const uuidChanged = await screen.findByText(/[a-z0-9-]{36}/).textContent;
+    const uuidChanged = screen.getByText(/[a-z0-9-]{36}/).textContent;
+    console.log('uuidChanged: ', uuidChanged);
 
     expect(uuid).not.toBe(uuidChanged);
   });
