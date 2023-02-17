@@ -9,7 +9,8 @@
       "@pages/*": ["src/pages/*"],
       "@hooks/*": ["src/hooks/*"],
       "@stories/*": ["src/stories/*"],
-      "@services/*": ["src/services/*"]
+      "@services/*": ["src/services/*"],
+      "@model/*": ["src/model/*"],
     },
     "target": "ESNext",
     "useDefineForClassFields": true,

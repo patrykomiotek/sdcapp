@@ -1,27 +1,19 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { fetchProducts } from '@services/products';
+import { Products } from '@model/Products';
 
-interface Product {
-  id: string;
-  fields: {
-    name: string;
-    price: string;
-    status: string;
-  }
-}
 
 export const ProductsList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [productResponse, setProductResponse] = useState<Products | null>(null);
 
   const loadData = async () => {
     // API request
     try {
       const response = await fetchProducts();
-      console.log(response.data);
-      setProducts(response.data.records);
+      setProductResponse(response.data);
     } catch (error) {
       setIsError(true);
     } finally {
@@ -38,7 +30,7 @@ export const ProductsList = () => {
     <div>
       {isLoading && <p>Loading...</p>}
       {isError && <p>Error!</p>}
-      {products.map((item: Product) => {
+      {productResponse && productResponse.records.map((item) => {
         return <div key={item.id}><p>{item.fields.name}</p></div>
       })}
     </div>

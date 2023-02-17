@@ -1,3 +1,5 @@
+import { Product } from '@model/Product';
+import { Products } from '@model/Products';
 import axios from 'axios';
 
 const API_URL = 'https://api.airtable.com/v0/appHEmkJzhzPZOu9s';
@@ -11,9 +13,9 @@ const api = axios.create({
 });
 
 export const fetchProducts = () => {
-  return api.get('/products');
+  return api.get<Products>('/products');
 }
 
 export const fetchProduct = (id: string) => {
-  return api.get(`products/${id}`);
+  return api.get<Product>(`products/${id}`);
 }
