@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { fetchProducts } from '@services/products';
 import { Products } from '@model/Products';
 
@@ -32,6 +31,7 @@ export const ProductsList = () => {
       {isError && <p>Error!</p>}
       {productResponse && productResponse.records.map((item) => {
         return <div key={item.id}><p>{item.fields.name}</p></div>
+        // <Product key={item.id} data={} />
       })}
     </div>
   );
