@@ -8,7 +8,8 @@
       "@organisms/*": ["src/ui/organisms/*"],
       "@pages/*": ["src/pages/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@stories/*": ["src/stories/*"]
+      "@stories/*": ["src/stories/*"],
+      "@services/*": ["src/services/*"]
     },
     "target": "ESNext",
     "useDefineForClassFields": true,

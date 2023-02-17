@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { fetchProducts } from '@services/products';
 
 interface Product {
   id: string;
@@ -18,11 +19,7 @@ export const ProductsList = () => {
   const loadData = async () => {
     // API request
     try {
-      const response = await axios.get('https://api.airtable.com/v0/appHEmkJzhzPZOu9s/products', {
-        headers: {
-          Authorization: 'Bearer patnDmggBHtalffj1.f3d4a959eeb7d405a397ba9189aa8eee1fffc23de37d5eccf9329f1f46a636e1'
-        }
-      });
+      const response = await fetchProducts();
       console.log(response.data);
       setProducts(response.data.records);
     } catch (error) {
