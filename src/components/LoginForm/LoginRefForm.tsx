@@ -1,6 +1,6 @@
 import { Button } from '@atoms/Button';
 import { Input } from '@atoms/Input';
-import { FormEventHandler, useRef, useEffect, useState } from 'react';
+import { FormEventHandler, useRef, useEffect, useState, FocusEventHandler } from 'react';
 
 interface FormData {
   email: string;

@@ -13,7 +13,7 @@ interface ThemeContextType {
 }
 
 // 3️⃣ useTheme "internal hook"
-const useTheme = () => {
+export const useTheme = () => {
   const [theme, setTheme] = useState(Theme.DARK);
   const toggle = () => {
     if (theme === Theme.LIGHT) {
