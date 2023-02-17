@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchProducts } from '@services/products';
 import { Products } from '@model/Products';
 
@@ -30,7 +31,11 @@ export const ProductsList = () => {
       {isLoading && <p>Loading...</p>}
       {isError && <p>Error!</p>}
       {productResponse && productResponse.records.map((item) => {
-        return <div key={item.id}><p>{item.fields.name}</p></div>
+        return (
+          <div key={item.id}>
+            <p><Link to={`/products/${item.id}`}>{item.fields.name}</Link></p>
+          </div>
+        )
         // <Product key={item.id} data={} />
       })}
     </div>

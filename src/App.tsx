@@ -15,6 +15,7 @@ import { ThemeProvider } from '@components/Theme/ThemeContext';
 import { ProductsPage } from '@pages/ProductsPage';
 import { BoundaryPage } from '@pages/BoundaryPage';
 import { ViewportPage } from '@pages/ViewportPage';
+import { ProductPage } from '@pages/ProductPage';
 
 import { Menu } from '@molecules/Menu';
 
@@ -32,6 +33,7 @@ function App() {
               <Route path="/auth" element={<AuthPage />} />
               <Route path="/theme" element={<ThemePage />} />
               <Route path="/products" element={<ProductsPage />} />
+              <Route path="/products/:id" element={<ProductPage />} />
               <Route path="/boundary" element={<BoundaryPage />} />
               <Route path="/viewport" element={<ViewportPage />} />
               <Route path="/" element={<HomePage />} />
