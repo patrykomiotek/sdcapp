@@ -12,6 +12,7 @@ interface Product {
 
 export const ProductsList = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const [products, setProducts] = useState([]);
 
   const loadData = async () => {
@@ -25,7 +26,7 @@ export const ProductsList = () => {
       console.log(response.data);
       setProducts(response.data.records);
     } catch (error) {
-
+      setIsError(true);
     } finally {
       setIsLoading(false);
     }
@@ -39,6 +40,7 @@ export const ProductsList = () => {
   return (
     <div>
       {isLoading && <p>Loading...</p>}
+      {isError && <p>Error!</p>}
       {products.map((item: Product) => {
         return <div key={item.id}><p>{item.fields.name}</p></div>
       })}
