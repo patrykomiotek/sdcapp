@@ -5,15 +5,15 @@ import { AuthCredentials } from './AuthCredentials';
 import { AuthProvider } from './AuthContext';
 
 describe('<AuthCredentials /> component', () => {
-  it('should toggle context value', () => {
-    expect(1).toBe(1);
-
+  it('should toggle context value', async () => {
     // render(<AuthProvider><AuthCredentials /></AuthProvider>);
+    render(<AuthProvider><AuthCredentials /></AuthProvider>);
 
-    // expect(screen.getByText(/is logged in: no/i)).toBeInTheDocument();
+    // expect(screen.getByText(/Is user logged? no/i)).toBeDefined();
+    expect(screen.getByText(/no/i)).toBeDefined();
 
-    // userEvent.click(screen.getByRole('button'));
+    await userEvent.click(screen.getByRole('button'));
 
-    // expect(screen.getByText(/is logged in: Yes/i)).toBeInTheDocument();
+    expect(screen.getByText(/yes/i)).toBeDefined();
   });
 });
