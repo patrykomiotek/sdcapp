@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchProducts } from '@services/products';
 import { Products } from '@model/Products';
 import { useApi } from '@hooks/useApi';
 
 export const ProductsList = () => {
+  // const { data, isError, isLoading } = useApi<Products>(() => fetchProducts('jakies-parametry'));
   const { data, isError, isLoading } = useApi<Products>(fetchProducts);
 
   return (

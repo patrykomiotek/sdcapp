@@ -4,6 +4,12 @@ import {
   Route,
   BrowserRouter as Router
 } from 'react-router-dom';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools'
+
 
 import { AuthPage } from '@pages/AuthPage';
 import { ThemePage } from '@pages/ThemePage';
@@ -19,28 +25,32 @@ import { ProductPage } from '@pages/ProductPage';
 
 import { Menu } from '@molecules/Menu';
 
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <div className="App">
-      <ThemeProvider>
-        <AuthProvider>
-          <Router>
-            <Menu />
-            <Routes>
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/generator" element={<GeneratorPage />} />
-              <Route path="/auth" element={<AuthPage />} />
-              <Route path="/theme" element={<ThemePage />} />
-              <Route path="/products" element={<ProductsPage />} />
-              <Route path="/products/:id" element={<ProductPage />} />
-              <Route path="/boundary" element={<BoundaryPage />} />
-              <Route path="/viewport" element={<ViewportPage />} />
-              <Route path="/" element={<HomePage />} />
-            </Routes>
-          </Router>
-        </AuthProvider>
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider>
+          <AuthProvider>
+            <Router>
+              <Menu />
+              <Routes>
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/generator" element={<GeneratorPage />} />
+                <Route path="/auth" element={<AuthPage />} />
+                <Route path="/theme" element={<ThemePage />} />
+                <Route path="/products" element={<ProductsPage />} />
+                <Route path="/products/:id" element={<ProductPage />} />
+                <Route path="/boundary" element={<BoundaryPage />} />
+                <Route path="/viewport" element={<ViewportPage />} />
+                <Route path="/" element={<HomePage />} />
+              </Routes>
+            </Router>
+          </AuthProvider>
+        </ThemeProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
     </div>
   )
 }

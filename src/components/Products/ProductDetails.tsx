@@ -2,32 +2,13 @@ import { useEffect, useState } from 'react';
 import { fetchProduct, fetchProducts } from '@services/products';
 import { Product } from '@model/Product';
 import { useParams } from 'react-router-dom';
-
+import { useQuery } from 'react-query';
 
 export const ProductDetails = () => {
   const { id } = useParams();
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  const [productResponse, setProductResponse] = useState<Product | null>(null);
+  const { data, isError, isLoading } = useQuery(`product-details/${id}`, () => fetchProduct(id as string));
 
-  const loadData = async () => {
-    // API request
-    try {
-      const response = await fetchProduct(id as string);
-      setProductResponse(response.data);
-    } catch (error) {
-      setIsError(true);
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    if (id) {
-      loadData();
-    }
-    // set state
-  }, []);
+  const productResponse = data?.data;
 
   return (
     <div>
