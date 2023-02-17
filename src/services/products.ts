@@ -16,6 +16,6 @@ export const fetchProducts = () => {
   return api.get<Products>('/products');
 }
 
-export const fetchProduct = (id: string) => {
+export const fetchProduct = (id: Product['id']) => {
   return api.get<Product>(`products/${id}`);
 }
