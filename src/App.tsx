@@ -26,6 +26,7 @@ import { ViewportPage } from '@pages/ViewportPage';
 import { ProductPage } from '@pages/ProductPage';
 
 import { Menu } from '@molecules/Menu';
+import { LoanPage } from '@pages/LoanPage';
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ function App() {
                   <Route path="/products/:id" element={<ProductPage />} />
                   <Route path="/boundary" element={<BoundaryPage />} />
                   <Route path="/viewport" element={<ViewportPage />} />
+                  <Route path="/loan" element={<LoanPage />} />
                   <Route path="/" element={<HomePage />} />
                 </Routes>
               </Router>

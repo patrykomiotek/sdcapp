@@ -3,11 +3,17 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 
 type Money = number;
 
+export enum LOAN_STEPS {
+  INITIAL = 1,
+  SALARY = 2,
+  SUMMARY = 3
+}
+
 export interface LoanState {
   firstName: string;
   lastName: string;
   monthlySalary: Money;
-  step: 1 | 2 | 3;
+  step: LOAN_STEPS;
 }
 
 const initialState: LoanState = {
@@ -27,13 +33,13 @@ export const loanSlice = createSlice({
     }>) => {
       state.firstName = action.payload.firstName;
       state.lastName = action.payload.lastName;
-      state.step = 2;
+      state.step = LOAN_STEPS.SALARY;
     },
     provideSalary: (state, action: PayloadAction<{
       salary: Money
     }>) => {
       state.monthlySalary = action.payload.salary;
-      state.step = 3;
+      state.step = LOAN_STEPS.SUMMARY;
     },
     reset: (state) => {
       state = initialState;

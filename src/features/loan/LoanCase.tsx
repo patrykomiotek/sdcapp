@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { provideName, provideSalary, LoanState } from './loanSlice';
-import type { RootState } from '../../store';
 import { useForm } from 'react-hook-form';
+
+import { provideName, provideSalary, LoanState, LOAN_STEPS } from './loanSlice';
+import type { RootState } from '../../store';
 
 type FormData = Pick<LoanState, 'firstName' | 'lastName'>;
 type SalaryData = Pick<LoanState, 'monthlySalary'>;
@@ -23,7 +24,7 @@ export const LoanCase = () => {
 
   if (loan.step === 1) {
     return (
-      <form onSubmit={handleSubmitU(handleUserData)}>
+      <form key={LOAN_STEPS.INITIAL} onSubmit={handleSubmitU(handleUserData)}>
         <div>
           First name: <input type="text" {...registerU('firstName')} />
         </div>
@@ -35,7 +36,7 @@ export const LoanCase = () => {
     );
   } else if (loan.step === 2) {
     return (
-      <form onSubmit={handleSubmitS(handleSalaryData)}>
+      <form key={LOAN_STEPS.SALARY} onSubmit={handleSubmitS(handleSalaryData)}>
         <div>
           Monthly salary: <input type="text" defaultValue={loan.monthlySalary} {...registerS('monthlySalary')} />
         </div>

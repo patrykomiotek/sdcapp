@@ -13,6 +13,7 @@ const Menu = () => {
       <Link to="/viewport">Viewport</Link>
       <Link to="/boundary">Boundary</Link>
       <Link to="/products">Products</Link>
+      <Link to="/loan">Loan</Link>
     </nav>
   );
 }
