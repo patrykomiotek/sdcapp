@@ -10,14 +10,14 @@
       "@hooks/*": ["src/hooks/*"],
       "@stories/*": ["src/stories/*"],
       "@services/*": ["src/services/*"],
-      "@model/*": ["src/model/*"],
+      "@model/*": ["src/model/*"]
     },
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -27,7 +27,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["vitest/globals"]
+    "types": ["jest", "node"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

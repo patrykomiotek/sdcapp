@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitFor, act } from '@testing-library/react';
 
 import { ProductsList } from './ProductsList';
 
@@ -8,10 +8,9 @@ describe('<ProductList /> component', () => {
     expect(screen.getByText('Loading...')).toBeDefined();
   });
   it('should display products', async () => {
-    const { debug } = render(<ProductsList />);
-    // expect(screen.getByText('Loading...')).toBeDefined();
-
+    act(() => {
+      render(<ProductsList />);
+    });
     expect(await screen.findByText('iPhone 17')).toBeDefined();
-
   });
 });

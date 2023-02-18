@@ -19,7 +19,6 @@ interface Props {
 }
 
 const Text = memo(({ children }: Props) => {
-  console.log('render: Text');
   return (
     <p className={styles.main}>{children}</p>
   );
