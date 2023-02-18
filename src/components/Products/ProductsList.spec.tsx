@@ -11,6 +11,6 @@ describe('<ProductList /> component', () => {
     act(() => {
       render(<ProductsList />);
     });
-    expect(await screen.findByText('iPhone 17')).toBeDefined();
+    expect(await screen.findByText('iPhone 17')).toBeInTheDocument();
   });
 });

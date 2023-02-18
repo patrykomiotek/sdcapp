@@ -12,10 +12,10 @@ describe('<AuthCredentials /> component', () => {
     // expect(screen.getByText(/Is user logged? no/i)).toBeDefined();
     // expect(screen.getByText(/Is user logged\?/i)).toBeDefined();
     // expect(screen.getByText('Is user logged?')).toBeDefined();
-    expect(screen.getByText(/no/i)).toBeDefined();
+    expect(screen.getByText(/no/i)).toBeInTheDocument();
 
     await userEvent.click(screen.getByRole('button'));
 
-    expect(screen.getByText(/yes/i)).toBeDefined();
+    expect(screen.getByText(/yes/i)).toBeInTheDocument();
   });
 });

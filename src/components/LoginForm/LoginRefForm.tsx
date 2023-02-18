@@ -47,7 +47,7 @@ export const LoginRefForm = ({ defaultValues }: Props) => {
 
   useEffect(() => {
     // body
-    console.log('Case 3');
+    // console.log('Case 3');
   }, [emailRef]); // updating when emailRef will change
 
   const handleSubmit: FormEventHandler = (event) => {

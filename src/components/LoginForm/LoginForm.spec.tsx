@@ -24,7 +24,7 @@ describe('<LoginForm />', () => {
     fireEvent.blur(emailField);
 
     expect(1).toBe(1);
-    expect(screen.getByText('E-mail is invalid')).toBeDefined();
+    expect(screen.getByText('E-mail is invalid')).toBeInTheDocument();
 
     // expect(screen.getByText(t('do-not-have-an-account') as string)).toBeInTheDocument();
     // expect(screen.getByText(t('do-not-have-an-account') as string)).toBeInTheDocument();

@@ -19,12 +19,11 @@ describe('<Generator />', () => {
     expect(uuid).not.toBe(uuidChanged);
   });
 
-  // it('should be visible', async () => {
-  //   await waitFor(() => render(<Generator />));
-  //   // render(<Generator />);
+  it('should be visible', async () => {
+    render(<Generator />);
 
-  //   const uuid = screen.getByText(/[a-z0-9-]{36}/);
+    const uuid = screen.getByText(/[a-z0-9-]{36}/);
 
-  //   expect(uuid).toBeDefined();
-  // });
+    expect(uuid).toBeInTheDocument();
+  });
 });
