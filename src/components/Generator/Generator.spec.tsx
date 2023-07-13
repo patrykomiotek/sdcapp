@@ -1,4 +1,4 @@
-import { act, render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Generator } from "./Generator";
 
@@ -12,7 +12,8 @@ describe('<Generator />', () => {
 
     const uuid = screen.getByText(/[a-z0-9-]{36}/).textContent;
 
-    await userEvent.click(screen.getByRole('button', { name: 'Refresh' }));
+    // await userEvent.click(screen.getByRole('button', { name: 'Refresh' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Refresh' }));
 
     const uuidChanged = screen.getByText(/[a-z0-9-]{36}/).textContent;
 
